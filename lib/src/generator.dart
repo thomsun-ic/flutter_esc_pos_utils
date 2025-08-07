@@ -26,19 +26,18 @@ class Generator {
 
   // ************************ Internal helpers ************************
   int _getMaxCharsPerLine(PosFontType? font) {
-  if (_paperSize == PaperSize.mm58) {
-    return (font == null || font == PosFontType.fontA) ? 32 : 42;
-  } else if (_paperSize == PaperSize.mm72) {
-    return (font == null || font == PosFontType.fontA) ? 42 : 56;
-  } else if (_paperSize == PaperSize.mm80) {
-    return (font == null || font == PosFontType.fontA) ? 48 : 64;
-  } else if (_paperSize == PaperSize.mm112) {
-    return (font == null || font == PosFontType.fontA) ? 64 : 88; // estimate
-  } else {
-    return 48;
+    if (_paperSize == PaperSize.mm58) {
+      return (font == null || font == PosFontType.fontA) ? 32 : 42;
+    } else if (_paperSize == PaperSize.mm72) {
+      return (font == null || font == PosFontType.fontA) ? 42 : 56;
+    } else if (_paperSize == PaperSize.mm80) {
+      return (font == null || font == PosFontType.fontA) ? 48 : 64;
+    } else if (_paperSize == PaperSize.mm112) {
+      return (font == null || font == PosFontType.fontA) ? 68 : 88; // estimate
+    } else {
+      return 48;
+    }
   }
-}
-
 
   // charWidth = default width * text size multiplier
   double _getCharWidth(PosStyles styles, {int? maxCharsPerLine}) {
@@ -195,7 +194,6 @@ class Generator {
       oneChannelBytes = List<int>.filled(heightPx * targetWidth, 0);
 
       for (int i = 0; i < heightPx; i++) {
-
         final pos =
             (i * widthPx) + i * missingPx; // Corrected position calculation
         oneChannelBytes.insertAll(pos, extra);

@@ -35,7 +35,6 @@ class PaperSize {
   static const mm72 = PaperSize._internal(3);
   static const mm112 = PaperSize._internal(4);
 
-
   int get width => value == PaperSize.mm58.value
       ? 372
       : value == PaperSize.mm72.value
